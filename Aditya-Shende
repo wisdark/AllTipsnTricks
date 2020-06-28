@@ -117,6 +117,74 @@ Function: You can create an own report and after that you can download it via cs
 
 
 7.
+Got SSH access
+❣️❣️❣️❣️
+Tip: Github Dork
+"site . com" ssh language:yaml
+
+Got config.yaml
+
+you can also check yaml, sql, txt, ruby
+
+Resource -> 
+Exploiting the SSH CRC32 Compensation Attack Detector ... - Penetration Testing
+https://github.com/techgaun/github-dorks
+
+NOTE: If got ssh port open and access denied -> Check for creds on github, If you get it ,you are lucky
+
+
+8.
+Upload RCE 
+1. Checking functions manually
+2. Found document section where we can upload documents of daily report.
+2. Tried simple .php, php2,phps,php4 no success
+3. I changed content & file type in PUT request with .phps and got success
+4. /any.phps?cmd=cat+/etc/passwd
+
+One more tip: Use intruder for HTTP verb checking - Payloads - Add from list - HTTP verbs
+
+Another part I found document upload IDOR on same function❣️
+
+
+9.
+In last 3 days found 2 Remote Code Execution
+
+Tip 1: Always check document upload section
+
+2. If your request is going to admin try to escalate using burp-collaborator.
+
+These are tips only remaining you've to Google Heart exclamation ❣️
+
+Resource -> https://medium.com/@satboy.fb/art-of-unrestricted-file-upload-exploitation-92ed28796d0
+
+For 2: meaning OOB getting triggered on your collaborator / bind server by passing the output from RCE as DNS-request? What kind of document you talking bout? XXE with docx/SVG/xlxs?
+
+just 2 words I'll tell you
+
+HTTP
+wget
+
+
+10.
+
+P1 
+Postgresql conf data disclosure
+1. Site with bulky functions
+2. Started long fuzzing via burp
+3. Found some juicy points but no idea what to do next
+4. Started URL fetching and dirsearch
+5. Multiple dir found
+6. Conf file disclosed critical information 
+
+
+Its simple directory disclosing configuration files. The main keyword was /source/
+
+What do the terms "bulky functions" and "long fuzzing via burp" mean?
+
+site having multiple processes 
+You can check intruder payloads section for long dir payloads
+
+
 
 
 
