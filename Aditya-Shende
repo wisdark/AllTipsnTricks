@@ -1,0 +1,14 @@
+1. 
+Found simple oauth stealing
+
+Endpoint:
+auth?response_type=code&redirect_uri=
+
+Explanation ->
+
+They were not validating the domain is evil or good
+
+redirect_uri parameter in OAUTH flow, its possible to redirect authenticated users to arbitrary domains with their oauth credentials from which its possible to takeover their account.
+
+
+2.
