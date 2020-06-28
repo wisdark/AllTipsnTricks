@@ -25,3 +25,15 @@ How he found endpoint ->
 
 2.
 
+Bug name: Unauthorized access to API EP via jql queries
+
+Basically jql is low based but I escalated to good severity 
+
+JQL -> Java Persistence Query Language
+
+Basically normal query responding in normal data but error based disclosing endpoints where path was unauthorized for viewing Json endpoints
+
+Resource -> https://community.atlassian.com/t5/Jira-Questions/JQL-input-sanitization/qaq-p/967393
+
+
+3. 
