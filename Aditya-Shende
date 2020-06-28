@@ -186,5 +186,28 @@ You can check intruder payloads section for long dir payloads
 
 
 
+11.
+Unauthorized access to event mgt system:
+Function- You can create public or private invents
+
+1. site.com/xyz/username?view=current_events
+2. Change username and forward request
+3. Able to just view title, date created and event owner name
+4. Escalated to access via manual headers
+5. Used X-Rewrite-URL: /current_events
+6. Forward request . Now able to see full event data
+7. For performing every step I need to add X-Rewrite-URL: /action_here 
+
+Tip: Always add headers to bypass single based verification on sensitive action.
+P2 marked as P1
+
+
+12.
+Title -> Some keywords you must search and focus while hunting:
+
+https://twitter.com/ADITYASHENDE17/status/1253624528871272450
+
+13.
+
 
 
