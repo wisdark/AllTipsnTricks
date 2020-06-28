@@ -208,6 +208,70 @@ Title -> Some keywords you must search and focus while hunting:
 https://twitter.com/ADITYASHENDE17/status/1253624528871272450
 
 13.
+the issue is http parameter polution
+Account takeover 
+Function: You can reset link to email or phone
+1. Captured request of reset link via phone number ("number:xxxx")
+2.  Added same parameter with different number 
+3. Do intercept> Response t this request = Reset link sent on 1234, Reset link sent on 4567
+4. Got link on both numbers 
+5. Both link worked
+
+{"number":"1234","number":"5678"}
+
+I tried on email function also but no success
+
+EXTRA ->
+
+Does this make sense? (array)
+
+{ "email" : [ 
+        "userone@gmail.com", 
+        "attacker@gmail.com" 
+] }
+
+and
+
+Got adviced by a friend
+email=victim@email.com&email=attacker@email.com
+
+email=victim@email.com,attacker@email.com
+
+email[0]=victim@email.com&email[1]=attacker@email.com
 
 
+Reference -> https://hackerone.com/reports/322985
 
+14.
+
+Open access to Internal management console.
+
+1. site having pretty good scope to test.
+2. Started with google dorks , Basically index dir
+3. site with some directories but not able to access
+4. Dirsearch started with json,php, aspx
+5. Php found but no success 
+6. On manual observation found basic console button under that php files > Click > Boooom
+6. Too much sensitive data
+
+Dorks example ->
+
+1. site:http://site.com ext:xml | ext:conf | ext:cnf | ext:reg | ext:inf | ext:rdp | ext:cfg | ext:txt | ext:ora | ext:ini
+
+2. site:http://site.com intitle:index.of
+
+
+15.
+Account takeover
+1. 1 account logged in 2 browsers
+2. Tried signup with same account but showing email exist and redirect to signup page
+3. In Firefox captured request of sign up submit >Do intercept > Response > Email exists
+4. Response changed to E-mail available >302 found /dashboard. Account created
+5. Change profile data
+6. Refresh in chrome and data changed
+
+After successful registration it was redirecting to user account dashboard, That's why I used 302 Found /dashboard
+
+Its 2FA bypass but you'll get idea how tampering helps to bypass
+
+Reference -> https://www.youtube.com/watch?v=mFeRAFWjEns&feature=youtu.be
