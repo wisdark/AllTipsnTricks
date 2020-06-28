@@ -83,5 +83,40 @@ https://www.youtube.com/watch?v=HgCLbeUegfI&feature=youtu.be
 
 
 
+5.
+
+Accidental finding (4 days ago)
+In site article they mentioned "If you have any queries, You can raise ticket on http://site.atlassian.net"
+
+1. When I clicked on link : Doesn't exist
+2. So I created the domain as they mentioned (http://site.atlassian.net)
+3. But no information....
+4. So I thought to check domain again.
+5. In recent tickets I found 7 raised queries . Some of them mentioned their personal information
+
+Quick report to company
+
+Reference -> https://medium.com/@intideceukelaire/hundreds-of-internal-servicedesks-exposed-due-to-covid-19-ecd0baec87bd
+
+Summary :-> 
+He saw an ad and visited that link. But it's empty, so he created that subdomain site(by using rouge cname). Few customers visited his site and submitted personal info for tickets. He submitted that to company as it's a privacy policy violation
+
+
+
+6. 
+Able to download anyone's report
+Function: You can create an own report and after that you can download it via csv or txt file
+
+1. Go to report section 
+2. Download option-> Click on txt
+3. Capture request > Do intercept > Response to this request
+4. Username & Filename disclosed
+5. Format :- aditya-1.txt
+6. Changed aditya to other username (eg: jonas-1.txt)
+7. It was downloading jonas 1st report
+
+
+7.
+
 
 
