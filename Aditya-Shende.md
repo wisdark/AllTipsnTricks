@@ -14,9 +14,10 @@ So redirect_uri accept any url like attcker.com
 How he found endpoint ->
 
 1. Was searching some endpoints on github with following
-"http://site.com" url=
-"http://site.com" redirect=
-"http://site.com" uri=
+<br>"http://site.com" url=
+<br>"http://site.com" redirect=
+<br>"http://site.com" uri=
+<br>
 
  2. Found login function endpoint and accessible URL
 
