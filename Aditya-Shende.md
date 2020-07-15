@@ -1,5 +1,4 @@
-1. 
-Found simple oauth stealing
+# 1. Found simple oauth stealing
 
 Endpoint:
 auth?response_type=code&redirect_uri=
@@ -14,18 +13,18 @@ So redirect_uri accept any url like attcker.com
 
 How he found endpoint ->
 
-# 1.Was searching some endpoints on github with following
-"http://site.com" url=
-"http://site.com" redirect=
-"http://site.com" uri=
+1. Was searching some endpoints on github with following
+<br>"http://site.com" url=
+<br>"http://site.com" redirect=
+<br>"http://site.com" uri=
+<br>
 
-# 2. Found login function endpoint and accessible URL
+ 2. Found login function endpoint and accessible URL
 
-# 3. The same function was their all 7 subs. All affected
+ 3. The same function was their all 7 subs. All affected
 
-2.
 
-Bug name: Unauthorized access to API EP via jql queries
+# 2. Bug name: Unauthorized access to API EP via jql queries
 
 Basically jql is low based but I escalated to good severity 
 
@@ -36,8 +35,8 @@ Basically normal query responding in normal data but error based disclosing endp
 Resource -> https://community.atlassian.com/t5/Jira-Questions/JQL-input-sanitization/qaq-p/967393
 
 
-3. 
-Testing for confluence(Older version)
+# 3. Testing for confluence(Older version)
+
 Found CVE:-2018-20824
 
 Created dork: inurl:"/plugins/servlet/Wallboard/"
@@ -52,10 +51,10 @@ Some programs still using old versions: Hit and try
 /plugins/servlet/Wallboard/?dashboardId=10000&dashboardId=10000&cyclePeriod=alert(document.domain)
 
 
-4.
-I was testing for ATO via reset function . Tried all method but no success. My friend 
-@Tabnexa
-  gave me tip to add  double Host in request while requesting password
+# 4. ATO via reset function
+
+I was testing for ATO via reset function . Tried all method but no success. 
+My friend  @Tabnexa gave me tip to add  double Host in request while requesting password
 
 Host: http://site.com
 Host: http://evilsite.com
@@ -83,7 +82,7 @@ https://www.youtube.com/watch?v=HgCLbeUegfI&feature=youtu.be
 
 
 
-5.
+# 5. Ticket raise vulnerability
 
 Accidental finding (4 days ago)
 In site article they mentioned "If you have any queries, You can raise ticket on http://site.atlassian.net"
@@ -103,7 +102,8 @@ He saw an ad and visited that link. But it's empty, so he created that subdomain
 
 
 
-6. 
+#  6. Able to download anyone's report
+
 Able to download anyone's report
 Function: You can create an own report and after that you can download it via csv or txt file
 
@@ -116,7 +116,8 @@ Function: You can create an own report and after that you can download it via cs
 7. It was downloading jonas 1st report
 
 
-7.
+# 7. Github dork : got SSH Access
+
 Got SSH access
 ❣️❣️❣️❣️
 Tip: Github Dork
@@ -133,25 +134,28 @@ https://github.com/techgaun/github-dorks
 NOTE: If got ssh port open and access denied -> Check for creds on github, If you get it ,you are lucky
 
 
-8.
-Upload RCE 
+# 8. Upload RCE 
+
 1. Checking functions manually
 2. Found document section where we can upload documents of daily report.
-2. Tried simple .php, php2,phps,php4 no success
-3. I changed content & file type in PUT request with .phps and got success
-4. /any.phps?cmd=cat+/etc/passwd
+3. Tried simple .php, php2,phps,php4 no success
+4. I changed content & file type in PUT request with .phps and got success
+5. /any.phps?cmd=cat+/etc/passwd
 
 One more tip: Use intruder for HTTP verb checking - Payloads - Add from list - HTTP verbs
 
 Another part I found document upload IDOR on same function❣️
 
 
-9.
+# 9. RCE : Always check Upload Section
+
 In last 3 days found 2 Remote Code Execution
 
-Tip 1: Always check document upload section
+Tip 
 
-2. If your request is going to admin try to escalate using burp-collaborator.
+1. Always check document upload section
+
+2.  If your request is going to admin try to escalate using burp-collaborator.
 
 These are tips only remaining you've to Google Heart exclamation ❣️
 
@@ -165,10 +169,11 @@ HTTP
 wget
 
 
-10.
+# 10. Postgresql conf data disclosure
 
 P1 
 Postgresql conf data disclosure
+
 1. Site with bulky functions
 2. Started long fuzzing via burp
 3. Found some juicy points but no idea what to do next
@@ -186,8 +191,8 @@ You can check intruder payloads section for long dir payloads
 
 
 
-11.
-Unauthorized access to event mgt system:
+# 11. Unauthorized access to event mgt system:
+
 Function- You can create public or private invents
 
 1. site.com/xyz/username?view=current_events
@@ -199,15 +204,86 @@ Function- You can create public or private invents
 7. For performing every step I need to add X-Rewrite-URL: /action_here 
 
 Tip: Always add headers to bypass single based verification on sensitive action.
+
 P2 marked as P1
 
 
-12.
+# 12. Some keywords you must search and focus while hunting
+
 Title -> Some keywords you must search and focus while hunting:
 
 https://twitter.com/ADITYASHENDE17/status/1253624528871272450
 
-13.
+# 13. Account Takeover using HTTP Parameter Pollution
+
+the issue is http parameter polution
+
+Account takeover 
+
+Function: You can reset link to email or phone
+
+1. Captured request of reset link via phone number ("number:xxxx")
+2.  Added same parameter with different number 
+3. Do intercept> Response t this request = Reset link sent on 1234, Reset link sent on 4567
+4. Got link on both numbers 
+5. Both link worked
+
+{"number":"1234","number":"5678"}
+
+I tried on email function also but no success
+
+EXTRA ->
+
+Does this make sense? (array)
+
+{ "email" : [ 
+        "userone@gmail.com", 
+        "attacker@gmail.com" 
+] }
+
+and
+
+Got adviced by a friend
+email=victim@email.com&email=attacker@email.com
+
+email=victim@email.com,attacker@email.com
+
+email[0]=victim@email.com&email[1]=attacker@email.com
 
 
+Reference -> https://hackerone.com/reports/322985
 
+# 14. Github Dorks : Open access to Internal management console
+
+Open access to Internal management console.
+
+1. site having pretty good scope to test.
+2. Started with google dorks , Basically index dir
+3. site with some directories but not able to access
+4. Dirsearch started with json,php, aspx
+5. Php found but no success 
+6. On manual observation found basic console button under that php files > Click > Boooom
+7. Too much sensitive data
+
+Dorks example ->
+
+1. site:http://site.com ext:xml | ext:conf | ext:cnf | ext:reg | ext:inf | ext:rdp | ext:cfg | ext:txt | ext:ora | ext:ini
+
+2. site:http://site.com intitle:index.of
+
+
+# 15. Account Takeover
+
+Account takeover
+1. 1 account logged in 2 browsers
+2. Tried signup with same account but showing email exist and redirect to signup page
+3. In Firefox captured request of sign up submit >Do intercept > Response > Email exists
+4. Response changed to E-mail available >302 found /dashboard. Account created
+5. Change profile data
+6. Refresh in chrome and data changed
+
+After successful registration it was redirecting to user account dashboard, That's why I used 302 Found /dashboard
+
+Its 2FA bypass but you'll get idea how tampering helps to bypass
+
+Reference -> https://www.youtube.com/watch?v=mFeRAFWjEns&feature=youtu.be
